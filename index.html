@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TaskFlow — gerencie suas tarefas com mais foco e menos esforço."
+    />
+    <title>TaskFlow</title>
+    <!-- Link para ícones (FontAwesome) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="logo"><i class="fa-solid fa-layer-group"></i> TaskFlow</a>
+        
+        <button class="btn-mobile" aria-label="Abrir menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Recursos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a href="#contato" class="btn-nav">Começar grátis</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- 1. HERO -->
+      <section id="hero" class="hero-section">
+        <div class="hero-content">
+          <h1>Gestão inteligente para equipes ágeis</h1>
+          <p>
+            Centralize seus projetos, automatize tarefas e ganhe horas de
+            produtividade na sua semana. O fim da bagunça nas planilhas começa
+            aqui.
+          </p>
+          <a href="#contato" class="btn-primary">Começar Teste Grátis</a>
+        </div>
+        <div class="hero-image">
+          <!-- Crie uma pasta assets e coloque uma imagem ilustrativa lá -->
+          <img src="assets/hero-mockup.jpg" alt="Painel do sistema TaskFlow" />
+        </div>
+      </section>
+
+      <!-- 2. SOBRE -->
+      <section id="sobre" class="sobre-section">
+        <div class="sobre-wrapper">
+          <div class="sobre-image">
+            <img src="assets/team-working.jpg" alt="Equipe colaborando no escritório" />
+          </div>
+
+          <div class="sobre-content">
+            <span class="label">Sobre o produto</span>
+            <h2>Foco no que realmente importa</h2>
+            <p>
+              Chega de abas abertas, reuniões intermináveis e tarefas perdidas.
+              O TaskFlow centraliza tudo num só lugar.
+            </p>
+            <p>
+              Criado para times que precisam de clareza, não de complexidade.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. SERVIÇOS / RECURSOS -->
+      <section id="servicos" class="servicos-section">
+        <div class="servicos-wrapper">
+            <div class="servicos-header">
+            <span class="label">Recursos</span>
+            <h2>Recursos desenhados para o sucesso</h2>
+            <p>
+                Tudo o que você precisa para escalar sua operação com controle
+                total.
+            </p>
+            </div>
+
+            <div class="cards-container">
+                <!-- Card 1 -->
+                <div class="card">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <h3>Relatórios Visuais</h3>
+                    <p>
+                    Acompanhe o progresso da equipe em tempo real com gráficos
+                    interativos e painéis personalizáveis.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Automação de Tarefas</h3>
+                    <p>
+                    Crie regras inteligentes para tarefas repetitivas. Deixe o
+                    trabalho braçal com a gente e foque na estratégia.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <i class="fa-solid fa-link"></i>
+                    <h3>Integrações Simples</h3>
+                    <p>
+                    Conecte o TaskFlow com as ferramentas que sua equipe já utiliza,
+                    como Slack, Google Drive e GitHub.
+                    </p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- 4. CONTATO -->
+      <section id="contato" class="contato-section">
+        <div class="contato-wrapper">
+          
+          <div class="contato-info">
+            <span class="label">Contato</span>
+            <h2>Pronto para transformar sua rotina?</h2>
+            <p>
+              Fale com um de nossos especialistas e agende uma demonstração
+              personalizada, ou tire suas dúvidas sobre nossos planos
+              corporativos.
+            </p>
+            <div class="contato-detalhe">
+              <span><i class="fa-solid fa-envelope"></i> contato@taskflow.com.br</span>
+              <span><i class="fa-solid fa-clock"></i> Resposta em até 24h</span>
+              <span><i class="fa-brands fa-whatsapp"></i> (81) 9 9999-9999</span>
+            </div>
+          </div>
+
+          <form action="#" method="POST" class="contato-form">
+            <div class="form-group">
+              <label for="nome">Nome completo</label>
+              <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail corporativo</label>
+              <input type="email" id="email" name="email" placeholder="seu@email.com.br" required />
+            </div>
+
+            <div class="form-group">
+              <label for="mensagem">Como podemos ajudar?</label>
+              <textarea id="mensagem" name="mensagem" rows="4" placeholder="Fale um pouco sobre o tamanho da sua equipe..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">
+              Agendar Demonstração
+            </button>
+          </form>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- 5. FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="/"><i class="fa-solid fa-layer-group"></i> TaskFlow</a>
+          <p>Produtividade sem limites.</p>
+        </div>
+
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a href="#" aria-label="Twitter"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TaskFlow. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

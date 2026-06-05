@@ -1,0 +1,748 @@
+/* ==========================================
+   RESET
+   ========================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   VARIÁVEIS
+   ========================================== */
+:root {
+  /* Cores */
+  --color-bg:         #F8F9FA;
+  --color-surface:    #FFFFFF;
+  --color-primary:    #4F46E5;
+  --color-primary-dark: #3730A3;
+  --color-cta:        #00D97E;
+  --color-cta-dark:   #00B868;
+  --color-text:       #111827;
+  --color-text-muted: #6B7280;
+  --color-border:     #E5E7EB;
+
+  /* Tipografia */
+  --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  /* Espaçamentos */
+  --max-width: 1100px;
+  --header-height: 70px;
+}
+
+
+/* ==========================================
+   GLOBAL
+   ========================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* ==========================================
+   HEADER & NAV
+   ========================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+nav {
+  max-width: var(--max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul a {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav ul a:hover {
+  color: var(--color-text);
+}
+
+.btn-nav {
+  background-color: var(--color-cta);
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  transition: background-color 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+
+.btn-nav:hover {
+  background-color: var(--color-cta-dark);
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   HEADER — RESPONSIVO
+   ========================================== */
+@media (max-width: 768px) {
+  nav {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  
+  /* Esconde os links de texto no telemóvel para não quebrar o layout */
+  nav ul {
+    display: none; 
+  }
+  
+  /* Reduz um pouco o tamanho do botão para caber melhor ao lado do logo */
+  .btn-nav {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================
+   HERO
+   ========================================== */
+.hero-section {
+  min-height: calc(100vh - var(--header-height));
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 540px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+}
+
+.hero-content h1 span {
+  color: var(--color-primary);
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-cta);
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.85rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-cta-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 217, 126, 0.35);
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(79, 70, 229, 0.15);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* ==========================================
+   HERO — RESPONSIVO
+   ========================================== */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content p {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   SOBRE
+   ========================================== */
+.sobre-section {
+  background-color: var(--color-surface);
+  padding: 7rem 2rem;
+}
+
+.sobre-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.sobre-image {
+  flex: 1;
+}
+
+.sobre-image img {
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.sobre-content {
+  flex: 1;
+}
+
+.sobre-content .label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.sobre-content h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+}
+
+.sobre-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.sobre-content p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* ==========================================
+   SOBRE — RESPONSIVO
+   ========================================== */
+@media (max-width: 768px) {
+  .sobre-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .sobre-wrapper {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .sobre-image,
+  .sobre-content {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   SERVIÇOS
+   ========================================== */
+.servicos-section {
+  background-color: var(--color-bg);
+  padding: 7rem 2rem;
+}
+
+.servicos-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.servicos-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.servicos-header .label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.servicos-header h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.servicos-header p {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ==========================================
+   CARDS GRID
+   ========================================== */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(79, 70, 229, 0.1);
+}
+
+.card i {
+  font-size: 2rem;
+  color: var(--color-primary);
+  width: fit-content;
+  padding: 0.75rem;
+  background-color: rgba(79, 70, 229, 0.08);
+  border-radius: 12px;
+  line-height: 1;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.card p {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================
+   SERVIÇOS — RESPONSIVO
+   ========================================== */
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .servicos-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================
+   CONTATO
+   ========================================== */
+.contato-section {
+  background-color: var(--color-surface);
+  padding: 7rem 2rem;
+}
+
+.contato-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 5rem;
+}
+
+/* ==========================================
+   CONTATO INFO (lado esquerdo)
+   ========================================== */
+.contato-info {
+  flex: 1;
+}
+
+.contato-info .label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.contato-info h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+}
+
+.contato-info p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.contato-detalhe {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contato-detalhe span {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.97rem;
+  color: var(--color-text-muted);
+}
+
+.contato-detalhe i {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  width: 20px;
+}
+
+/* ==========================================
+   FORMULÁRIO (lado direito)
+   ========================================== */
+.contato-form {
+  flex: 1;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 0.97rem;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  background-color: var(--color-cta);
+  color: var(--color-text);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-cta-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 217, 126, 0.3);
+}
+
+/* ==========================================
+   CONTATO — RESPONSIVO
+   ========================================== */
+@media (max-width: 768px) {
+  .contato-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .contato-wrapper {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .contato-info,
+  .contato-form {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 4rem 2rem 1.5rem 2rem;
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha se a tela diminuir */
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-logo a {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Bolinhas elegantes para os ícones sociais */
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-bg);
+  color: var(--color-text-muted);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+/* Efeito Hover: Pula um pouquinho e fica com a cor primária */
+.footer-social a:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   FOOTER — RESPONSIVO
+   ========================================== */
+@media (max-width: 560px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ==========================================
+   MENU MOBILE & ANIMAÇÕES
+   ========================================== */
+.btn-mobile {
+  display: none; /* Escondido por padrão (Desktop) */
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  /* Esconde o botão verde 'Começar grátis' no header pequeno para não poluir */
+  .btn-nav {
+    display: none; 
+  }
+
+  /* Mostra o ícone do hambúrguer */
+  .btn-mobile {
+    display: block;
+    z-index: 1000;
+  }
+
+  /* Transforma a lista (ul) num menu que desce da tela */
+  .nav-links {
+    position: absolute;
+    top: var(--header-height);
+    right: 0;
+    background-color: var(--color-surface);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    
+    /* Escondido com animação */
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 999;
+  }
+
+  /* Classe que o JS vai injetar para mostrar o menu */
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

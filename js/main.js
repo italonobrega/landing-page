@@ -45,3 +45,24 @@ if (formContato) {
     alert('Recebido! (laboratório — nada é enviado de verdade)');
   });
 }
+// --- Tracking: ViewContent quando a seção de recursos aparece na tela ---
+const secaoRecursos = document.querySelector('#servicos');
+
+if (secaoRecursos) {
+  const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        fbq('track', 'ViewContent', {
+          content_name: 'Secao de recursos - TaskFlow',
+          content_category: 'landing-page'
+        });
+
+        observador.unobserve(entrada.target); // dispara uma vez só
+      }
+    });
+  }, {
+    threshold: 0.5 // só conta quando 50% da seção está visível
+  });
+
+  observador.observe(secaoRecursos);
+}

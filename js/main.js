@@ -30,3 +30,18 @@ links.forEach(link => {
     }
   });
 });
+// --- Tracking: Lead no envio do formulário ---
+const formContato = document.querySelector('.contato-form');
+
+if (formContato) {
+  formContato.addEventListener('submit', (e) => {
+    e.preventDefault(); // impede o reload que mataria o evento
+
+    fbq('track', 'Lead', {
+      content_name: 'Formulario de contato - TaskFlow'
+    });
+
+    formContato.reset();
+    alert('Recebido! (laboratório — nada é enviado de verdade)');
+  });
+}

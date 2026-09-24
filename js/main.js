@@ -66,3 +66,33 @@ if (secaoRecursos) {
 
   observador.observe(secaoRecursos);
 }
+
+// --- Tracking: funil de assinatura (InitiateCheckout → Purchase) ---
+const botoesAssinar = document.querySelectorAll('.btn-assinar');
+
+botoesAssinar.forEach((botao) => {
+  botao.addEventListener('click', () => {
+    const plano = botao.dataset.plano;          // "profissional"
+    const valor = Number(botao.dataset.valor);  // 149 — número, não texto
+
+    const dadosDoPlano = {
+      value: valor,
+      currency: 'BRL',
+      content_name: `Plano ${plano}`,
+      content_ids: [plano],
+      content_type: 'product'
+    };
+
+    // Etapa 1: intenção
+    fbq('track', 'InitiateCheckout', dadosDoPlano);
+
+    // Simula a tela de pagamento (laboratório — nada é cobrado)
+    const pagou = confirm(`Confirmar assinatura do plano ${plano} por R$ ${valor}/mês?\n\n(laboratório — nada é cobrado)`);
+
+    // Etapa 2: venda — só se o "pagamento" foi confirmado
+    if (pagou) {
+      fbq('track', 'Purchase', dadosDoPlano);
+      alert('Assinatura confirmada! (simulação)');
+    }
+  });
+});
